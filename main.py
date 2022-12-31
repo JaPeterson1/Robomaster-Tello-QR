@@ -1,12 +1,12 @@
 import drone
 import threading
 import time
+import cv2 as cv
 
 videoThread = threading.Thread(target=drone.videoThread)
-#drone.cooling(True)
 videoThread.start()
-coolingThread = threading.Thread(target=drone.coolingThread)
-coolingThread.start()
-drone.setHover(True)
+time.sleep(1)
+drone.takeoff()
 time.sleep(50)
+drone.land()
 drone.close_connection()
